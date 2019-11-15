@@ -107,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        android:background="#37f10e"
         android:text="Add"
         app:layout_constraintTop_toBottomOf="@+id/rgGender" />
 </LinearLayout>

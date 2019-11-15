@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -25,9 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nabin.esoft.R;
-import com.nabin.esoft.adapter.StudentListApt;
 import com.nabin.esoft.model.DataSet;
-import com.nabin.esoft.ui.MainWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +37,7 @@ public class StudentFragment extends Fragment {
     String sn = "", sa = "", sadd = "", gen = "";
     View view;
     List<DataSet> studentList = new ArrayList<>();
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_adduser, container, false);
@@ -62,6 +61,7 @@ public class StudentFragment extends Fragment {
                     return;
                 } else if (TextUtils.isEmpty(sage.getText().toString())) {
                     sage.setError("please enter age");
+                    return;
                 } else {
                     sn = sname.getText().toString();
                     sadd = saddress.getText().toString();
@@ -73,8 +73,8 @@ public class StudentFragment extends Fragment {
                     RadioButton radioButton = getView().findViewById(selectid);
                     gen = radioButton.getText().toString();
                     Toast.makeText(getContext(), "Welcome " + sn + sa + sadd + gen, Toast.LENGTH_SHORT).show();
-                    DataSet dataSet= new DataSet(sn,sadd,sa,gen);
-                    studentList=dataSet.getSlist();
+                    DataSet dataSet = new DataSet(sn, sadd, sa, gen);
+                    studentList = dataSet.getSlist();
                     studentList.add(dataSet);
                     dataSet.setSlist(studentList);
                     sname.setText("");
